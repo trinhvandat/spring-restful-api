@@ -20,16 +20,15 @@ public class RoomController {
 
     private static final Logger logger = LoggerFactory.getLogger(RoomController.class);
 
-    @ModelAttribute
+    @ModelAttribute()
     public void addTypeRoomToModel(Model model){
         RoomType[] roomTypes = RoomType.values();
         List<String> rooms = new ArrayList<>();
         for (RoomType type : roomTypes){
             rooms.add(type.toString());
         }
+        model.addAttribute("rooms", rooms);
         logger.info("list type: {}", rooms);
-        String type = "SMALL";
-        model.addAttribute("rooms", type);
     }
 
     @GetMapping

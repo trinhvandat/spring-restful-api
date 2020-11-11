@@ -18,14 +18,16 @@
 			</tr>
 			<tr>
 				<td align="right">Acreage:</td>
-				<td align="right"> <input type="text" th:field="*{roomAcreage}" placeholder="enter room's acreage"> </td>
+				<td align="right"> <input type="text" th:field="*{roomAcreage}"> </td>
 			</tr>
 			<tr>
 				<td align="right">Type:</td>
+			</tr>
+			<tr>
 				<td align="right">
-<!--					<div th:each="type : ${rooms}">-->
-						<input name="type" type="checkbox" th:value="${rooms}"/>
-<!--					</div>-->
+					<div th:each="type: ${room}">
+						<input type="checkbox" name="type" th:value="*{roomType}" th:text="${type}">
+					</div>
 				</td>
 			</tr>
 			<tr>
