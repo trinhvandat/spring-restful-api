@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset = "UTF-8">
+	<title>My Application</title>
+</head>
+	<body>
+	<h1 style="color: red">Welcome to My Application</h1>
+	
+	<form method="post" th:action="@{/rooms}">
+		<button>Add new room</button>
+	</form>
+	</body>
+</html>

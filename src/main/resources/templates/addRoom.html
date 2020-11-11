@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset = "UTF-8">
+	<title>Add new room</title>
+</head>
+<body>
+	<h2>Add new room</h2>
+
+	<form method="post" th:action="@{/rooms/add}" th:object="${room}">
+		<table>
+			<tr>
+				<td align="right">Name:</td>
+				<td align="right"> <input type="text" th:field="*{roomName}" placeholder="enter room's name"> </td>
+			</tr>
+			<tr>
+				<td align="right">Acreage:</td>
+				<td align="right"> <input type="text" th:field="*{roomAcreage}" placeholder="enter room's acreage"> </td>
+			</tr>
+			<tr>
+				<td align="right">Type:</td>
+				<td align="right">
+<!--					<div th:each="type : ${rooms}">-->
+						<input name="type" type="checkbox" th:value="${rooms}"/>
+<!--					</div>-->
+				</td>
+			</tr>
+			<tr>
+				<td align="right"></td>
+				<td align="right"> <button>add room</button> </td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

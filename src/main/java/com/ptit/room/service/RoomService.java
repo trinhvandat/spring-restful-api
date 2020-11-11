@@ -2,7 +2,6 @@ package com.ptit.room.service;
 
 import com.ptit.room.dto.RoomRequestDto;
 import com.ptit.room.dto.RoomResponseDto;
-import com.ptit.room.model.Room;
 
 import java.util.List;
 
