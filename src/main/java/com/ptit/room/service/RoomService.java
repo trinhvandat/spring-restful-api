@@ -12,7 +12,7 @@ public interface RoomService {
 
     public RoomResponseDto updateRoom(RoomRequestDto roomRequestDto);
 
-    public RoomResponseDto deleteRoom(RoomRequestDto roomRequestDto);
+    public boolean deleteRoomById(int roomId);
 
     public List<RoomResponseDto> getAllRooms();
 

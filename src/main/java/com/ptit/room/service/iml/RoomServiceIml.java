@@ -35,20 +35,21 @@ public class RoomServiceIml implements RoomService {
     public RoomResponseDto updateRoom(RoomRequestDto roomRequestDto) {
         Room room = mappingData.convertRoomRequestDtoToRoom(roomRequestDto);
         Room updatedRoom = null;
-        if (checkRoomExist(room)){
+        if (checkRoomExist(room.getId())){
             updatedRoom = roomRepository.saveAndFlush(room);
         }
         return mappingData.convertRoomToResponseDto(updatedRoom);
     }
 
     @Override
-    public RoomResponseDto deleteRoom(RoomRequestDto roomRequestDto) {
-        Room room = mappingData.convertRoomRequestDtoToRoom(roomRequestDto);
-        Room deletedRoom = null;
-        if (checkRoomExist(room)){
-            deletedRoom = roomRepository.deleteById(room.getId());
+    public boolean deleteRoomById(int roomId) {
+        boolean resultDelete = false;
+        logger.info("room exits: {}", checkRoomExist(roomId));
+        if (checkRoomExist(roomId)){
+            roomRepository.deleteById(roomId);
+            resultDelete = true;
         }
-        return mappingData.convertRoomToResponseDto(deletedRoom);
+        return resultDelete;
     }
 
     @Override
@@ -63,8 +64,8 @@ public class RoomServiceIml implements RoomService {
         return mappingData.convertRoomToResponseDto(room);
     }
 
-    private boolean checkRoomExist(Room room){
-        Room roomExist = roomRepository.findById(room.getId()).orElse(null);
+    private boolean checkRoomExist(int roomId){
+        Room roomExist = roomRepository.findById(roomId).orElse(null);
         if (roomExist == null){
             return false;
         }

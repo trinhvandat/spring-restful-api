@@ -29,7 +29,7 @@ public class MappingData {
 
     public List<RoomResponseDto> convertRoomListToRoomResponseDtoList(List<Room> roomList){
         if (roomList != null){
-            roomList.stream().map(this::convertRoomToResponseDto).collect(toList());
+            return roomList.stream().map(this::convertRoomToResponseDto).collect(toList());
         }
         return null;
     }
