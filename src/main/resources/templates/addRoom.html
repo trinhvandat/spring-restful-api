@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns = "http://www.w3.org/1999/xhtml"
+      xmlns:th = "http://www.thymeleaf.org">
 
 <head>
 	<meta charset = "UTF-8">
@@ -25,8 +25,10 @@
 			</tr>
 			<tr>
 				<td align="right">
-					<div th:each="type: ${room}">
-						<input type="checkbox" name="type" th:value="*{roomType}" th:text="${type}">
+					<div th:each="type : ${rooms}">
+						<input type="checkbox" name="type" th:value="${type}" th:field="*{roomType}"/>
+						<span th:text="${type}">ROOM TYPE</span>
+					<br/>
 					</div>
 				</td>
 			</tr>

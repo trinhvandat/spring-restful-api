@@ -1,6 +1,7 @@
 package com.ptit.room.controller;
 
 import com.ptit.room.dto.RoomRequestDto;
+import com.ptit.room.dto.RoomResponseDto;
 import com.ptit.room.enumeration.RoomType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,6 +41,12 @@ public class RoomController {
     public String showFormAddRoom(Model model){
         model.addAttribute("room", new RoomRequestDto());
         return "addRoom";
+    }
+
+    @PostMapping("/rooms/add")
+    public String addRoom(RoomRequestDto room){
+        logger.info("room: {}", room);
+        return "redirect:/";
     }
 
 }
