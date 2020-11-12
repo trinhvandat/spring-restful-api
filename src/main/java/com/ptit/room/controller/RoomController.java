@@ -54,4 +54,11 @@ public class RoomController {
         return "redirect:/";
     }
 
+    @GetMapping("/rooms")
+    public String getListRoom(Model model){
+        List<RoomResponseDto> rooms = roomService.getAllRooms();
+        model.addAttribute("roomLists", rooms);
+        return "rooms";
+    }
+
 }
