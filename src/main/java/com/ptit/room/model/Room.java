@@ -1,8 +1,10 @@
 package com.ptit.room.model;
 
 import com.ptit.room.enumeration.RoomType;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,6 +13,8 @@ import java.io.Serializable;
 @Table(name = "room")
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Room implements Serializable {
 
     @Id
