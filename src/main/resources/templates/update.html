@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-
 <html xmlns = "http://www.w3.org/1999/xhtml"
       xmlns:th = "http://www.thymeleaf.org">
-
 <head>
 	<meta charset = "UTF-8">
-	<title>Add new room</title>
+	<title>Update form</title>
 </head>
-<body>
-	<h2>Add new room</h2>
-
-	<form method="post" th:action="@{/rooms/add}" th:object="${room}">
+	<body>
+	
+	<h3 style="color: red">Update Room</h3>
+	
+	<form method="post" th:action="@{/rooms/update}" th:object="${room}">
 		<table style="text-align: right">
 			<tr>
+				<td align="right">ID:</td>
+				<td><input type="text" th:field="*{roomId}" th:value="${room.roomId}" readonly></td>
+			</tr>
+			<tr>
 				<td align="right">Name:</td>
-				<td> <input type="text" th:field="*{roomName}" placeholder="enter room's name"> </td>
+				<td> <input type="text" th:field="*{roomName}" th:value="${room.roomName}"> </td>
 			</tr>
 			<tr>
 				<td align="right">Acreage:</td>
-				<td> <input type="text" th:field="*{roomAcreage}"> </td>
+				<td> <input type="text" th:field="*{roomAcreage}" th:value="${room.roomAcreage}"> </td>
 			</tr>
 			<tr>
 				<td align="right">Type:</td>
@@ -35,9 +38,9 @@
 			</tr>
 			<tr>
 				<td align="right"></td>
-				<td align="right"> <button>add room</button> </td>
+				<td align="right"> <button>update room</button> </td>
 			</tr>
 		</table>
 	</form>
-</body>
+	</body>
 </html>
